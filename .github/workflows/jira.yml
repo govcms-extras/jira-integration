@@ -17,9 +17,11 @@ jobs:
     - name: Validate
       run: |
         echo "The GitHub Action Secret will be masked:  "
+        echo ${{ secrets.JIRA_BASE_URL }}
       
     - name: Jira connect
       uses: govcms-extras/github-action-jira-login@1.0.0-alpha1
+      environment: develop
       env:
         JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
         JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
