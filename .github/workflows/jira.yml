@@ -20,6 +20,11 @@ jobs:
     runs-on: ubuntu-latest
     #if: github.event.pull_request.user.id == 27856297
     steps:
+    - name: Validate
+      run: |
+        echo "The GitHub Action Secret will be masked:  "
+        echo ${{ secrets.JIRA_BASE_URL }}
+      
     - name: Login to Jira
       uses: atlassian/gajira-login@v2.0.0
       env:
