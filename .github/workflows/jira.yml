@@ -1,0 +1,44 @@
+name: Jira
+
+on:
+  pull_request:
+    types:
+      - opened
+    branches:
+      - main
+
+env:
+  JIRA_BASE_URL: ${{ env.JIRA_BASE_URL }}
+  JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+  JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+  JIRA_PROJECT: ${{ secrets.JIRA_PROJECT_KEY }}
+  JIRA_ISSUE_TYPE: "Task"
+
+jobs:
+  create_jira:
+    name: Dependabot Jira
+    runs-on: ubuntu-latest
+    environment: develop
+    #if: github.event.pull_request.user.id == 27856297
+    steps:
+    - name: Validate
+      run: |
+        echo "The GitHub Action Secret will be masked:  "
+      
+    - name: Jira connect
+      uses: govcms-extras/github-action-jira-login@1.0.0-alpha1
+      env:
+        JIRA_BASE_URL: ${{ env.JIRA_BASE_URL }}
+        JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+        JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+
+    - name: Create Jira Issue
+      id: create
+      uses: govcms-extras/github-action-jira-create@1.0.0-alpha1
+      with:
+        project: ${{ secrets.JIRA_PROJECT_KEY }}
+        issuetype: ${{ secrets.JIRA_ISSUE_TYPE }}
+        summary: |
+          [${{github.event.repository.name }}] ${{github.event.pull_request.title }}
+        description: |
+          ${{github.event.pull_request.html_url }}
