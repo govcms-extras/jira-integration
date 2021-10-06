@@ -16,7 +16,7 @@
     },
     "dependencies": {
       "cypress": "7.3.0",
-      "cypress-file-upload": "5.0.7",
+      "cypress-file-upload": "5.0.8",
       "cypress-xpath": "1.6.2"
     },
     "devDependencies": {
