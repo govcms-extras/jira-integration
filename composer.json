@@ -1,0 +1,17 @@
+{
+    "name": "govcms-extras/jira-integration",
+    "description": "Proof of concept for Jira integration.",
+    "type": "library",
+    "license": "GNU General Public License v2.0",
+    "authors": [
+        {
+            "name": "Pandaski",
+            "email": "pandaski@outlook.com.au"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/console": "4.3.0",
+        "symfony/cache": "4.3.0"
+    }
+}
