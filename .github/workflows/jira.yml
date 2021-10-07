@@ -23,14 +23,13 @@ jobs:
         echo ${{ secrets.JIRA_BASE_URL }}
       
     - name: Jira connect
-      uses: govcms-extras/github-action-jira-login@1.0.0-alpha1
+      uses: govcms-extras/github-action-jira-connect@1.0.0-alpha1
       env:
         JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
         JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
         JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
 
-    - name: Create Jira Issue
-      id: create
+    - name: Jira issue:create
       uses: govcms-extras/github-action-jira-create@1.0.0-alpha1
       with:
         project: ${{ secrets.JIRA_PROJECT_KEY }}
