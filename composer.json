@@ -12,6 +12,6 @@
     "minimum-stability": "dev",
     "require": {
         "symfony/console": "4.3.0",
-        "symfony/cache": "4.3.0"
+        "symfony/cache": "5.4.x-dev"
     }
 }
