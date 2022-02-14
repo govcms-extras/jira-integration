@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/govcms-extras/jira-integration#readme",
   "dependencies": {
-    "vue": "2.1.2"
+    "vue": "3.2.31"
   }
 }
